@@ -1,0 +1,105 @@
+.fullbandparams {
+    background-color: #1C1C28;
+    color: #F5F5F5;
+}
+
+.paramslider {
+    border-color: #8F90A6;
+    background-color: #28293D;
+}
+
+.paramslider:hover {
+    border-color: #8F90A6;
+    background-color: #555770;
+}
+
+.paramslider .fill {
+    background-color: #6698FF;
+}
+
+.paramslider .fill:hover {
+    background-color: #8EB4FF;
+}
+
+.crossoverslider {
+    border-color: #8F90A6;
+    background-color: #28293D;
+    font-size: 10px;
+}
+
+.crossoverslider:hover {
+    border-color: #8F90A6;
+    background-color: #555770;
+}
+
+.crossoverslider .fill {
+    background-color: #6698FF;
+}
+
+.crossoverslider .fill:hover {
+    background-color: #8EB4FF;
+}
+
+.eventbutton {
+    height: auto;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #8F90A6;
+    background-color: #28293D;
+}
+
+.eventbutton:hover {
+    background-color: #555770;
+}
+
+.eventbutton:checked {
+    background-color: #6698FF;
+}
+
+.eventbutton:checked:hover {
+    background-color: #8EB4FF;
+}
+
+.activeeventbutton {
+    height: auto;
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #8F90A6;
+    background-color: #6698FF;
+}
+
+.activeeventbutton :hover {
+    border-color: #8F90A6;
+    background-color: #8EB4FF;
+}
+
+.parambutton {
+    border-color: #8F90A6;
+    background-color: #28293D;
+}
+
+.parambutton:hover {
+    background-color: #555770;
+}
+
+.parambutton:checked {
+    background-color: #6698FF
+}
+
+.parambutton:checked:hover {
+    background-color: #8EB4FF
+}
+
+.scrollview scrollbar {
+    background-color: #28293D;
+}
+
+.scrollview scrollbar:thumb {
+    background-color: #555770;
+}
+
+.textcolor {
+    color: #F5F5F5;
+}
