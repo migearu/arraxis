@@ -111,10 +111,10 @@ impl Arraxis {
     // might add Linkwitz-Riley 48 dB/oct crossover later, but i think the 24 dB/oct is good enough for now
     fn update_filter(&mut self, sample_rate: f32) {
         let band_cutoffs = [
-            self.params.band1_cutoff.value(),
-            self.params.band2_cutoff.value(),
-            self.params.band3_cutoff.value(),
-            self.params.band4_cutoff.value(),
+            if self.params.active_bands.value() >= 2 { self.params.band1_cutoff.value() } else { 20000.0 },
+            if self.params.active_bands.value() >= 3 { self.params.band2_cutoff.value() } else { 20000.0 },
+            if self.params.active_bands.value() >= 4 { self.params.band3_cutoff.value() } else { 20000.0 },
+            if self.params.active_bands.value() >= 5 { self.params.band4_cutoff.value() } else { 20000.0 },
             20000.0,
         ];
         // the amount of filters will always be the number of bands - 1

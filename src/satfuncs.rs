@@ -9,9 +9,9 @@ pub enum DistFuncs {
     Sqrt, // sign(x) * sqrt(|x|) * t
     Bitcrush, // round(x * t) / t
     // more experimental
-    Sine, // sin(x * t * PI)
+    Sine, // sign(x) * sin(x * t * PI)
     Wonky, // sin(x * t) * cos(x * t)
-    SineSqr, // sin(x^2 * t * PI)
+    SineSqr, // sign(x) * sin(x^2 * t * PI)
     SineSoftClip, // (1 - e^(-|3x| * t)) / (1 + e^(-|3x| * t)) + (sin(10 * x * t * PI) / (sign(x) * 5 * sqrt(|x|)))
 }
 
@@ -19,9 +19,9 @@ impl DistFuncs {
     pub fn get_dist(&self, x: f32, t: f32) -> f32 {
         match self {
             DistFuncs::Sqrt => x.signum() * (x * t).abs().sqrt() ,
-            DistFuncs::Sine => (x.abs() * t * PI).sin(),
+            DistFuncs::Sine => x.signum() * (x.abs() * t * PI).sin(),
             DistFuncs::Tanh => (2.0 * x * t).tanh(),
-            DistFuncs::SineSqr => (x.abs().powi(2) * t * PI).sin(),
+            DistFuncs::SineSqr => x.signum() * (x.abs().powi(2) * t * PI).sin(),
             DistFuncs::HardClip => (x * t).min(1.0).max(-1.0),
             DistFuncs::SoftClip => (1.0 - (-x * t * 3.0).exp()) / (1.0 + (-x * t * 3.0).exp()),
             DistFuncs::Bitcrush => {

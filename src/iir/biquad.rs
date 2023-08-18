@@ -99,12 +99,6 @@ impl BiquadFilter {
 
         match self.filter_type {
             BiquadFilterType::LowPass => {
-                //self.a0 = k * k * norm;
-                //self.a1 = 2.0 * self.a0;
-                //self.a2 = self.a0;
-                //self.b1 = 2.0 * (k * k - 1.0) * norm;
-                //self.b2 = (1.0 - k / self.q + k * k) * norm;
-                
                 let omega = std::f32::consts::TAU * self.fc;
                 let cos_omega = omega.cos();
                 let alpha = omega.sin() / (2.0 * self.q);
@@ -117,12 +111,6 @@ impl BiquadFilter {
                 self.b2 = (1.0 - alpha) / b0;
             }
             BiquadFilterType::HighPass => {
-                //self.a0 = 1.0 * norm;
-                //self.a1 = -2.0 * self.a0;
-                //self.a2 = self.a0;
-                //self.b1 = 2.0 * (k * k - 1.0) * norm;
-                //self.b2 = (1.0 - k / self.q + k * k) * norm;
-
                 let omega = std::f32::consts::TAU * self.fc;
                 let cos_omega = omega.cos();
                 let alpha = omega.sin() / (2.0 * self.q);
