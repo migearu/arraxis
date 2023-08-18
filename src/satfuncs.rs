@@ -24,7 +24,7 @@ impl DistFuncs {
             DistFuncs::SineSqr => x.signum() * (x.abs().powi(2) * t * PI).sin(),
             DistFuncs::HardClip => (x * t).min(1.0).max(-1.0),
             DistFuncs::SoftClip => (1.0 - (-x * t * 3.0).exp()) / (1.0 + (-x * t * 3.0).exp()),
-            DistFuncs::Bitcrush => {
+            DistFuncs::Bitcrush => { // divide by zero possible
                 if t != 0.0 {
                     (x * t).round() / t
                 } else {
@@ -32,9 +32,12 @@ impl DistFuncs {
                 }
             },
             DistFuncs::Wonky => (x * t).sin() * (x * t).cos(),
-            DistFuncs::SineSoftClip => {
+            DistFuncs::SineSoftClip => { // divide by zero possible
                 let softclip = (1.0 - (-x * t * 3.0).exp()) / (1.0 + (-x * t * 3.0).exp());
-                let sine = ((10.0 * t * x * PI).sin() * x) / (x.signum() * 5.0 * x.abs().sqrt());
+                let mut sine = 0.0;
+                if x != 0.0 {
+                    sine = ((10.0 * t * x * PI).sin() * x) / (x.signum() * 5.0 * x.abs().sqrt());
+                }
                 softclip + sine
             },
         }

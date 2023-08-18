@@ -1,5 +1,6 @@
 # Arraxis
  Open Source, Free, Multiband Distortion Plugin, for you!
+Demo Video: https://youtu.be/G3f3SxSyPZo
 
 If you encounter any bugs, just create an issue and I'll get around to it when I can.
 
